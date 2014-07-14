@@ -14,22 +14,23 @@ void init_data(float * data, int size)
 
 int main()
 {
-	const int height = 256;
-	const int width = 256;
-	const int channels = 50;
-	const int batch_size = 32;//128;
-	const int ksize = 5; // 5-11
-	const int pad = 2; // 0-2
-	const int stride = 1; // 1
-	const int num_kernels = 64;
+	const size_t height = 256;
+	const size_t width = 256;
+	const size_t channels = 32;
+	const size_t batch_size = 16;//128;
+	const size_t ksize = 5; // 5-11
+	const size_t pad = 2; // 0-2
+	const size_t stride = 1; // 1
+	const size_t num_kernels = 64;
 
 
-	const int arraySize = height * width * channels * batch_size; //each bacth have 128 image, each image have 256*256 size and 3 channels
+	const size_t arraySize = height * width * channels * batch_size; //each bacth have 128 image, each image have 256*256 size and 3 channels
 	float *image = new float[arraySize];// = { 1, 2, 3, 4, 5 };
 
-	int height_col = (height + 2 * pad - ksize) / stride + 1;
-	int width_col = (width + 2 * pad - ksize) / stride + 1;
-	int colArraySize = height_col * width_col * channels *ksize*ksize* batch_size;
+	size_t height_col = (height + 2 * pad - ksize) / stride + 1;
+	size_t width_col = (width + 2 * pad - ksize) / stride + 1;
+	size_t colArraySize = height_col * width_col * channels *ksize*ksize* batch_size;
+	printf("column data cost memory %ld\n",colArraySize);
 	float *col1 = new float[colArraySize]();// = { 10, 20, 30, 40, 50 };
 	float *col2 = new float[colArraySize]();// = { 0 };
 	

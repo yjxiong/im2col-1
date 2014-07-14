@@ -132,19 +132,19 @@ cudaError_t im2colWithCuda(
 
 	sdkCreateTimer(&timer);
 
-	int height_col = (height + 2 * pad - ksize) / stride + 1;
-	int width_col = (width + 2 * pad - ksize) / stride + 1;
+	size_t height_col = (height + 2 * pad - ksize) / stride + 1;
+	size_t width_col = (width + 2 * pad - ksize) / stride + 1;
 		
-	int K = ksize*ksize*channels;
-	int M = num_kernels;
-	int N = height_col*width_col;
+	size_t K = ksize*ksize*channels;
+	size_t M = num_kernels;
+	size_t N = height_col*width_col;
 
-	int image_size = height * width * channels;
-	int images_size = image_size * batch_size;
+	size_t image_size = height * width * channels;
+	size_t images_size = image_size * batch_size;
 
-	int kernels_size = M * K;
-	int col_size = N*K;
-	int result_size = M * N * batch_size;
+	size_t kernels_size = M * K;
+	size_t col_size = N*K;
+	size_t result_size = M * N * batch_size;
 
 
 	// col 
