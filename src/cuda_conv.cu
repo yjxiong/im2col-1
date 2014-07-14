@@ -16,7 +16,7 @@ int main()
 {
 	const int height = 256;
 	const int width = 256;
-	const int channels = 3;
+	const int channels = 50;
 	const int batch_size = 32;//128;
 	const int ksize = 5; // 5-11
 	const int pad = 2; // 0-2
